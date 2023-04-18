@@ -8,6 +8,8 @@ packages = [{include = "legsy_test_task"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+fastapi = "^0.95.1"
+uvicorn = "^0.21.1"
 
 
 [build-system]
