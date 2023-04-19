@@ -1,7 +1,7 @@
 import requests
 import logging
 
-from src.schemas.request_models.product import ProductRequest
+from src.schemas.request_models import CreateOrUpdateProductRequest
 
 CARD_DETAIL_URL = (
     "https://card.wb.ru/cards/detail"
@@ -47,7 +47,7 @@ def __extract_quantity(product_data: dict) -> int:
     return quantity
 
 
-def get_product_data(nm_id: int) -> ProductRequest:
+def get_product_data(nm_id: int) -> CreateOrUpdateProductRequest:
     response = __request_product_data(CARD_DETAIL_URL.format(nm_id=nm_id))
     parsed_data = __parse_product_data(response)
-    return ProductRequest(**parsed_data)
+    return CreateOrUpdateProductRequest(**parsed_data)

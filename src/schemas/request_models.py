@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 
-class ProductRequest(BaseModel):
+class CreateOrUpdateProductRequest(BaseModel):
     """Requsest schema for creating or updating product."""
     nm_id: int = Field(..., alias="id")
     name: str
@@ -16,3 +16,8 @@ class ProductRequest(BaseModel):
     feedbacks: int
     colors: list
     quantity: int
+
+
+class ParseProductRequest(BaseModel):
+
+    nm_id: int

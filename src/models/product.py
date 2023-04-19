@@ -1,11 +1,9 @@
 from sqlalchemy import Column, Integer, JSON, String
-from sqlalchemy.ext.declarative import as_declarative
+
+from src.models.base import Base
 
 
-@as_declarative()
-class Product:
-
-    __tablename__ = "products"
+class Product(Base):
 
     nm_id = Column(Integer, primary_key=True)
     name = Column(String(200), nullable=False)
