@@ -14,8 +14,6 @@ services:
 
   redis:
     image: redis:7-alpine
-    extra_hosts:
-      - "host.docker.internal:host-gateway"  # TODO: remove me
     ports:
       - "6379:6379"  # TODO: remove me
 

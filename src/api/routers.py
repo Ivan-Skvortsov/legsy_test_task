@@ -6,7 +6,7 @@ from src.api.schemas.response_models import ProductResponse
 from src.api.schemas.request_models import ParseProductRequest
 from src.crud.product import ProductCRUD
 from src.models.product import Product
-from src.services.parsing import get_product_data
+from src.services.parser import get_product_data
 
 product_router = APIRouter(prefix="/products", tags=["Products"])
 
