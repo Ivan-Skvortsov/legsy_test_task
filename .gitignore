@@ -131,5 +131,5 @@ dmypy.json
 # Vscode project settings
 .vscode/
 
-# logs
-logs/
+# db
+*.db
