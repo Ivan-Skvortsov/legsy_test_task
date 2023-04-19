@@ -10,6 +10,11 @@ packages = [{include = "legsy_test_task"}]
 python = "^3.11"
 fastapi = "^0.95.1"
 uvicorn = "^0.21.1"
+requests = "^2.28.2"
+sqlalchemy = "^2.0.9"
+asyncpg = "^0.27.0"
+alembic = "^1.10.3"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
 
 
 [build-system]
