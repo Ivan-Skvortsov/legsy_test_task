@@ -11,6 +11,8 @@ class EnvironmentSettings(BaseSettings):
     DB_HOST: str
     DB_PORT: str
 
+    CELERY_BROKER_URL: str
+
     @property
     def database_url(self) -> str:
         return (
