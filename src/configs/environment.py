@@ -4,7 +4,6 @@ from pydantic import BaseSettings
 
 
 class EnvironmentSettings(BaseSettings):
-    """Project settings."""
 
     POSTGRES_DB: str
     POSTGRES_USER: str
