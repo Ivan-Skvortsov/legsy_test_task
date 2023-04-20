@@ -21,7 +21,7 @@ class ProductCRUD:
         return db_obj.scalars().first()
 
     async def get(self, nm_id: int) -> Product:
-        db_obj = self.get_one_or_none(nm_id)
+        db_obj = await self.get_one_or_none(nm_id)
         if not db_obj:
             raise ItemNotFoundError
         return db_obj

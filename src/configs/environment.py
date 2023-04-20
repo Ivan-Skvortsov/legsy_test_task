@@ -13,6 +13,8 @@ class EnvironmentSettings(BaseSettings):
 
     CELERY_BROKER_URL: str
 
+    PRODUCT_UPDATE_PERIOD_SECONDS: int = 43200
+
     @property
     def database_url(self) -> str:
         return (

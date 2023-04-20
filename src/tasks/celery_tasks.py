@@ -20,7 +20,7 @@ loop = asyncio.get_event_loop()
 @celery_app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     sender.add_periodic_task(
-        60,
+        settings.PRODUCT_UPDATE_PERIOD_SECONDS,
         update_all_products_info_task.s(),
         name="update all products info"
     )
