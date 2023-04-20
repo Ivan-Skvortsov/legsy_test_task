@@ -15,7 +15,7 @@ product_router = APIRouter(prefix="/products", tags=["Products"])
     "/",
     response_model=ProductResponse,
     status_code=HTTPStatus.CREATED,
-    summary="Parse wildberries.ru and save to db product with given nm_id.",
+    summary="Parse wildberries.ru and save to db product with given item id.",
     response_description="Product info.",
 )
 async def parse_wildberries_and_save_product(
@@ -44,7 +44,7 @@ async def list_products(
     "/{nm_id}",
     response_model=ProductResponse,
     status_code=HTTPStatus.OK,
-    summary="Get product by nm_id.",
+    summary="Get product by item id.",
     response_description="Product info."
 )
 async def get_product_by_nm_id(
@@ -57,7 +57,7 @@ async def get_product_by_nm_id(
 @product_router.delete(
     "/{nm_id}",
     status_code=HTTPStatus.NO_CONTENT,
-    summary="Delete product with given nm_id.",
+    summary="Delete product with given item id.",
 )
 async def delete_product_by_nm_id(
     nm_id: int,
