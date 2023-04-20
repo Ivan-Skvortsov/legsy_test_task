@@ -27,7 +27,7 @@ def __request_product_data(url: str) -> requests.Response:
 def __parse_product_data(response: requests.Response) -> dict:
     try:
         response_data = response.json()
-        product_data = response_data["dta"]["products"][0]
+        product_data = response_data["data"]["products"][0]
     except requests.RequestException as err:
         msg = f"Error decoding response from wildberries.ru: {err}"
         logging.exception(msg)

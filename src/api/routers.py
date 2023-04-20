@@ -37,7 +37,7 @@ async def parse_wildberries_and_save_product(
 async def list_products(
     product_crud: ProductCRUD = Depends()
 ) -> list[ProductResponse]:
-    return await product_crud.list()
+    return await product_crud.get_all()
 
 
 @product_router.get(

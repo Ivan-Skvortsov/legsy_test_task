@@ -28,7 +28,7 @@ class ProductCRUD:
         await self.__session.refresh(instance)
         return instance
 
-    async def list(self) -> list[Product]:
+    async def get_all(self) -> list[Product]:
         db_objs = await self.__session.scalars(select(Product))
         return db_objs.all()
 
@@ -45,3 +45,7 @@ class ProductCRUD:
         await self.__session.delete(db_obj)
         await self.__session.commit()
         await self.__session.flush()
+
+    async def get_item_numbers_of_all_products(self) -> list[int]:
+        item_numbers = await self.__session.scalars(select(Product.nm_id))
+        return item_numbers.all()

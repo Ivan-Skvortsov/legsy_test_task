@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 class CreateOrUpdateProductRequest(BaseModel):
 
-    nm_id: int = Field(..., alias="idw")
+    nm_id: int = Field(..., alias="id")
     name: str
     brand: str
     brand_id: int = Field(..., alias="brandId")
