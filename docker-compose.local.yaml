@@ -11,12 +11,38 @@ services:
       - legsy-test-task-volume:/var/lib/postgresql/data/
     env_file:
       - .env
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  backend:
+    build: ./
+    image: legsy-test-task
+    command: sh -c "alembic upgrade head && python run.py"
+    container_name: legsy_test_task_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+
+  celery:
+    image: legsy-test-task
+    command: sh -c "celery -A src.tasks.celery_tasks:celery_app worker -B"
+    restart: always
+    depends_on:
+      - backend
+      - redis
+    env_file:
+      - .env
 
   redis:
     image: redis:7-alpine
-    ports:
-      - "6379:6379"  # TODO: remove me
-
 
 volumes:
   legsy-test-task-volume:
