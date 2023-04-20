@@ -51,7 +51,7 @@ async def get_product_by_nm_id(
     nm_id: int,
     product_crud: ProductCRUD = Depends()
 ) -> ProductResponse:
-    return await product_crud.get_one_or_none(nm_id)
+    return await product_crud.get(nm_id)
 
 
 @product_router.delete(
