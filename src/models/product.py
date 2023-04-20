@@ -5,7 +5,7 @@ from src.models.base import Base
 
 class Product(Base):
 
-    nm_id = Column(Integer, primary_key=True)
+    nm_id = Column(Integer, primary_key=True, index=True, unique=True)
     name = Column(String(200), nullable=False)
     brand = Column(String(100), nullable=False)
     brand_id = Column(Integer, nullable=False)
